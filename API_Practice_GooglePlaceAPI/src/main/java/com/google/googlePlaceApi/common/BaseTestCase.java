@@ -10,6 +10,9 @@ import java.util.Map.Entry;
 import java.util.Properties;
 
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeTest;
+
+import io.restassured.RestAssured;
 
 public class BaseTestCase {
 	public static HashMap<String, String> propertiesMap = new HashMap<String, String>();
@@ -17,7 +20,7 @@ public class BaseTestCase {
 	@BeforeSuite
 	public void init()
 	{
-		File resourcesFile = new File(System.getProperty("user.dir")+"\\resources\\resources.properties");
+		File resourcesFile = new File(System.getProperty("user.dir")+"//resources//resources.properties");
 		
 		Properties properties = new Properties();
 		
@@ -36,4 +39,12 @@ public class BaseTestCase {
 			e.printStackTrace();
 		}
 	}
+	
+	@BeforeTest
+	public void beforeTest()
+	{
+		RestAssured.baseURI = propertiesMap.get("googlePlace.BaseUri");
+	}
+	
+	
 }
