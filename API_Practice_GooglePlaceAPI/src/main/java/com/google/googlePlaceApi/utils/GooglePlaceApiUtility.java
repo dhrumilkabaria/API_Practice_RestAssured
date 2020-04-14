@@ -9,6 +9,8 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.testng.Reporter;
 
+import io.restassured.response.Response;
+
 public class GooglePlaceApiUtility {
 
 	public static JSONObject getJsonObjectForJsonFile(String filePath) {
@@ -31,5 +33,21 @@ public class GooglePlaceApiUtility {
 		}
 		
 		return jsonObject;
+	}
+	
+	private static JSONObject getJsonObject(String json) {
+		JSONObject jsonObject = null;
+		JSONParser jsonParser = new JSONParser();
+		try {
+			jsonObject = (JSONObject) jsonParser.parse(json);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		return jsonObject;
+	}
+	
+	public static JSONObject getJsonObjectForRawJsonResponse(Response response)
+	{
+		return getJsonObject(response.asString());
 	}
 }
