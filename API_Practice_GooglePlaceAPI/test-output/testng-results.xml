@@ -1,24 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+<testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="3705" started-at="2020-04-13T19:57:30Z" finished-at="2020-04-13T19:57:33Z">
+  <suite name="Suite" duration-ms="3565" started-at="2020-04-14T19:55:16Z" finished-at="2020-04-14T19:55:19Z">
     <groups>
     </groups>
-    <test name="Test" duration-ms="3705" started-at="2020-04-13T19:57:30Z" finished-at="2020-04-13T19:57:33Z">
+    <test name="Test" duration-ms="3565" started-at="2020-04-14T19:55:16Z" finished-at="2020-04-14T19:55:19Z">
       <class name="com.google.googlePlaceApi.testSuites.TestSuite1">
-        <test-method status="PASS" signature="init()[pri:0, instance:com.google.googlePlaceApi.testSuites.TestSuite1@39c0f4a]" name="init" is-config="true" duration-ms="13" started-at="2020-04-13T19:57:30Z" finished-at="2020-04-13T19:57:30Z">
+        <test-method status="PASS" signature="init()[pri:0, instance:com.google.googlePlaceApi.testSuites.TestSuite1@39c0f4a]" name="init" is-config="true" duration-ms="11" started-at="2020-04-14T19:55:16Z" finished-at="2020-04-14T19:55:16Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- init -->
-        <test-method status="PASS" signature="beforeTest()[pri:0, instance:com.google.googlePlaceApi.testSuites.TestSuite1@39c0f4a]" name="beforeTest" is-config="true" duration-ms="516" started-at="2020-04-13T19:57:30Z" finished-at="2020-04-13T19:57:30Z">
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:com.google.googlePlaceApi.testSuites.TestSuite1@39c0f4a]" name="beforeTest" is-config="true" duration-ms="409" started-at="2020-04-14T19:55:16Z" finished-at="2020-04-14T19:55:16Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method status="PASS" signature="addPlace()[pri:0, instance:com.google.googlePlaceApi.testSuites.TestSuite1@39c0f4a]" name="addPlace" duration-ms="3169" started-at="2020-04-13T19:57:30Z" finished-at="2020-04-13T19:57:33Z">
+        <test-method status="PASS" signature="addPlace()[pri:0, instance:com.google.googlePlaceApi.testSuites.TestSuite1@39c0f4a]" name="addPlace" duration-ms="2706" started-at="2020-04-14T19:55:16Z" finished-at="2020-04-14T19:55:19Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- addPlace -->
+        <test-method status="PASS" signature="getPlaceNegative()[pri:0, instance:com.google.googlePlaceApi.testSuites.TestSuite1@39c0f4a]" name="getPlaceNegative" duration-ms="228" started-at="2020-04-14T19:55:19Z" finished-at="2020-04-14T19:55:19Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getPlaceNegative -->
+        <test-method status="PASS" signature="getPlacePositive()[pri:0, instance:com.google.googlePlaceApi.testSuites.TestSuite1@39c0f4a]" name="getPlacePositive" duration-ms="188" started-at="2020-04-14T19:55:19Z" finished-at="2020-04-14T19:55:19Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getPlacePositive -->
       </class> <!-- com.google.googlePlaceApi.testSuites.TestSuite1 -->
     </test> <!-- Test -->
   </suite> <!-- Suite -->

@@ -5,9 +5,9 @@
     <classes>
       <class name="com.google.googlePlaceApi.testSuites.TestSuite1">
         <methods>
-          <include name="addPlace"/>
           <include name="init"/>
           <include name="beforeTest"/>
+          <include name="getPlaceNegative"/>
         </methods>
       </class> <!-- com.google.googlePlaceApi.testSuites.TestSuite1 -->
     </classes>
