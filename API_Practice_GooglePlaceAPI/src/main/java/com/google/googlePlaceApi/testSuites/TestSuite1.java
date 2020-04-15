@@ -1,6 +1,7 @@
 package com.google.googlePlaceApi.testSuites;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import org.json.simple.JSONObject;
 import org.testng.Assert;
@@ -38,6 +39,8 @@ public class TestSuite1 extends BaseTestCase{
 		
 		String placeId = jsonPath.getString("place_id");
 		propertiesMap.put("place_id", placeId);
+		
+		getPlacePositive();
 	}
 	
 	@Test(dependsOnMethods = "addPlace")
@@ -80,6 +83,16 @@ public class TestSuite1 extends BaseTestCase{
 	@Test(dependsOnMethods = "addPlace")
 	public void deletePlace()
 	{
+		RequestSpecification requestSpecification = RestAssured.given().relaxedHTTPSValidation().log().all();
+		requestSpecification.queryParam("key", "qaclick123");
+		
+		Map<String, String> payloadMap = new HashMap<String, String>();
+		payloadMap.put("place_id", propertiesMap.get("place_id"));
+		
+		Response response = requestSpecification.request(Method.DELETE, propertiesMap.get("googlePlace.deletePlace.Uri"));
+		
+		Assert.assertEquals(response.getStatusCode(), 200);
+		getPlaceNegative();
 		
 	}
 }
