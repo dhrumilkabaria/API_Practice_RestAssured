@@ -56,13 +56,14 @@ public class GooglePlaceApiUtility {
 	
 	public static String readFileAsString(String path)
 	{
-		byte[] encoded = null;
+		String fileContent = null;
 		try {
-			encoded = Files.readAllBytes(Paths.get(path));
+			fileContent = new String(Files.readAllBytes(Paths.get(path)));
 		} catch (IOException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
-			System.err.println("Given file at "+path+" could not be read");
 		}
-		return new String(encoded, StandardCharsets.UTF_8);
+		
+		return fileContent;
 	}
 }
