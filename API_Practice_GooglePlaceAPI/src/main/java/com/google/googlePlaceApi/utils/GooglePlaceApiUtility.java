@@ -3,6 +3,9 @@ package com.google.googlePlaceApi.utils;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -49,5 +52,17 @@ public class GooglePlaceApiUtility {
 	public static JSONObject getJsonObjectForRawJsonResponse(Response response)
 	{
 		return getJsonObject(response.asString());
+	}
+	
+	public static String readFileAsString(String path)
+	{
+		byte[] encoded = null;
+		try {
+			encoded = Files.readAllBytes(Paths.get(path));
+		} catch (IOException e) {
+			e.printStackTrace();
+			System.err.println("Given file at "+path+" could not be read");
+		}
+		return new String(encoded, StandardCharsets.UTF_8);
 	}
 }
