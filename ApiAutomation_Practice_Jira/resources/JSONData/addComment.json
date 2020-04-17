@@ -1,7 +1,7 @@
 {
-    "body": "comment from postman",
-    "visibility": {
-        "type": "role",
-        "value": "Administrators"
-    }
+	"visibility": {
+		"type": "role",
+		"value": "Administrators"
+	},
+	"body": "comment from automation"
 }

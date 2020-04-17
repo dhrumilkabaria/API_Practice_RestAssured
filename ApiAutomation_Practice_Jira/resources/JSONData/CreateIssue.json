@@ -1,12 +1,12 @@
 {
-    "fields": {
-        "project": {
-            "key":"TEST"
-        },
-        "summary": "something's wrong",
-        "issuetype": {
-            "name":"Bug"
-        }
-        
-    }
+	"summary": "Issue 0.6098843618398196",
+	"fields": {
+		"summary": "something's wrong",
+		"issuetype": {
+			"name": "Bug"
+		},
+		"project": {
+			"key": "TEST"
+		}
+	}
 }
