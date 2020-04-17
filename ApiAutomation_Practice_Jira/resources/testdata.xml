@@ -1,0 +1,12 @@
+<root>
+	<users>
+		<user1>
+			<username>dhrumilkabaria</username>
+			<password>2409dhrumil</password>
+		</user1>
+		<user2>
+			<username>test</username>
+			<username>1234</username>
+		</user2>
+	</users>
+</root>

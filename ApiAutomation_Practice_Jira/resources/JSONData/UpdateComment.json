@@ -1,0 +1,7 @@
+{
+    "body": "Updating comment from postman.",
+    "visibility": {
+        "type": "role",
+        "value": "Administrators"
+    }
+}
