@@ -1,0 +1,1 @@
+This is sample attachment file to be used in add attachment test case of Add Attachment Jira API Automation.

@@ -100,7 +100,7 @@ public class JiraApiUtility {
 		jsonObject.put(key, value);
 	}
 	
-	public static String getFilePath(String fileName) {
-		return System.getProperty("user.dir")+"//resources//JSONData//"+fileName;
+	public static String getJsonFilePath(String jsonFileName) {
+		return System.getProperty("user.dir")+"//resources//JSONData//"+jsonFileName;
 	}
 }

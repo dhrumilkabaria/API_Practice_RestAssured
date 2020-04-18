@@ -59,8 +59,8 @@ public class BaseTestCase {
 		userDetails.put("username", "dhrumilkabaria");
 		userDetails.put("password", "2409dhrumil");
 		
-		JiraApiUtility.updateJsonFile(JiraApiUtility.getFilePath("Login.json"), userDetails);
-		requestSpecification.body(JiraApiUtility.getJsonObjectForJsonFile(JiraApiUtility.getFilePath("Login.json")));
+		JiraApiUtility.updateJsonFile(JiraApiUtility.getJsonFilePath("Login.json"), userDetails);
+		requestSpecification.body(JiraApiUtility.getJsonObjectForJsonFile(JiraApiUtility.getJsonFilePath("Login.json")));
 		
 		Response response = requestSpecification.request(Method.POST, properetiesMap.get("login.Uri")).then().log().ifValidationFails().extract().response();
 		Assert.assertTrue(response.getStatusCode()==200, "Login failed. Session is not generated.");
