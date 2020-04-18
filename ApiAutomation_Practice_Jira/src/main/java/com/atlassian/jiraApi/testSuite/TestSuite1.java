@@ -44,7 +44,7 @@ public class TestSuite1 extends BaseTestCase{
 		dataFromResponse.put("issueSelfUrl", issueSelfUrl);
 	}
 	
-	@Test(priority = 2)
+	@Test(priority = 1)
 	public void addComment()
 	{
 		RequestSpecification requestSpecification = RestAssured.given().log().ifValidationFails().filter(session);
@@ -59,8 +59,32 @@ public class TestSuite1 extends BaseTestCase{
 		requestSpecification.body(JiraApiUtility.getJsonObjectForJsonFile(JiraApiUtility.getFilePath("addComment.json")));
 		Response response = requestSpecification.request(Method.POST, properetiesMap.get("addComment.Uri")).then().log().ifValidationFails().extract().response();
 		
-		Assert.assertTrue(response.getStatusCode()==201, "Issue could not be created. Response error code: "+response.getStatusCode());
+		Assert.assertTrue(response.getStatusCode()==201, "Comment could not be added to issue "+dataFromResponse.get("issueId")+". Response error code: "+response.getStatusCode());
 		
+		JsonPath jsonPath = response.jsonPath();
+		String commentId = jsonPath.getString("id");
+		dataFromResponse.put("commentId", commentId);
+		
+	}
+	
+	@Test(priority = 2)
+	public void updateComment() {
+		
+		RequestSpecification requestSpecification = RestAssured.given().log().ifValidationFails().filter(session);
+		requestSpecification.header("Content-Type", "application/json");
+		Map<String, String> pathParameters = new HashMap<String, String>();
+		pathParameters.put("issueIdOrKey", dataFromResponse.get("issueId"));
+		pathParameters.put("id", dataFromResponse.get("commentId"));
+		requestSpecification.pathParams(pathParameters);
+		
+		Map<String, Object> updateCommentDetail = new HashMap<String, Object>();
+		updateCommentDetail.put("body", "updated comment from automation");
+		JiraApiUtility.updateJsonFile(JiraApiUtility.getFilePath("updateComment.json"), updateCommentDetail);
+		
+		requestSpecification.body(JiraApiUtility.getJsonObjectForJsonFile(JiraApiUtility.getFilePath("updateComment.json")));
+		Response response = requestSpecification.request(Method.PUT, properetiesMap.get("updateComment.Uri"));
+		
+		Assert.assertTrue(response.getStatusCode()==200, "Comment could not be updated to issue "+dataFromResponse.get("issueId")+". Response error code: "+response.getStatusCode());
 	}
 	
 }

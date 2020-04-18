@@ -51,7 +51,7 @@ public class BaseTestCase {
 	public void loginToJira()
 	{
 		RestAssured.baseURI = properetiesMap.get("jiraApi.BaseUri");
-		RequestSpecification requestSpecification = RestAssured.given().log().all().filter(session);
+		RequestSpecification requestSpecification = RestAssured.given().log().ifValidationFails().filter(session);
 		
 		requestSpecification.header("Content-Type", "application/json");
 		
@@ -62,7 +62,7 @@ public class BaseTestCase {
 		JiraApiUtility.updateJsonFile(JiraApiUtility.getFilePath("Login.json"), userDetails);
 		requestSpecification.body(JiraApiUtility.getJsonObjectForJsonFile(JiraApiUtility.getFilePath("Login.json")));
 		
-		Response response = requestSpecification.request(Method.POST, properetiesMap.get("login.Uri")).then().log().all().extract().response();
+		Response response = requestSpecification.request(Method.POST, properetiesMap.get("login.Uri")).then().log().ifValidationFails().extract().response();
 		Assert.assertTrue(response.getStatusCode()==200, "Login failed. Session is not generated.");
 		
 		JsonPath jsonPath = response.jsonPath();
